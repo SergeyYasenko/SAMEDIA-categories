@@ -1,32 +1,3 @@
-// const hoverAnimLeaf = document.querySelector(".img-anim");
-// const hoverAnimBr = document.querySelector(".img-anim-br");
-
-// const hoverAnims = document.querySelectorAll('.card');
-// if (hoverAnims.length > 0) {
-//    hoverAnims.forEach(hoverAnim => {
-//       hoverAnim.addEventListener("mouseover", onHoverAnimMouseover);
-//    });
-//    function onHoverAnimMouseover(e) {
-
-//       if (hoverAnims.length > 0) {
-//          hoverAnimLeaf.classList.add("active")
-//          hoverAnimBr.classList.add("active")
-//       }
-//    }
-// }
-
-// const hoverAnimsRem = document.querySelectorAll('.card');
-// if (hoverAnimsRem.length > 0) {
-//    hoverAnims.forEach(hoverAnim => {
-//       hoverAnim.addEventListener("mouseout", onHoverAnimMouseout);
-//    });
-//    function onHoverAnimMouseout(e) {
-//       hoverAnimLeaf.classList.remove("active")
-//       hoverAnimBr.classList.remove("active")
-//    }
-// }
-
-
 const menuItemsElement = document.querySelectorAll('.card');
 const menu = document.querySelector('.card-block');
 const menuList = document.querySelectorAll('.card');
