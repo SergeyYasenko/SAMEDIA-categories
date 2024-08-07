@@ -7,30 +7,31 @@ html(lang='ru')
       meta(charset="UTF-8")
       meta(name="viewport" content="width=device-width")
 body
-   main.main
-      img.img-anim-br#brown-leaf(src="img/brown_leaf.svg", alt="Коричневый листок")
-      img.img-anim#green-leaf(src="img/leaf.svg", alt="Листок")
-      section.categories
-         h1.title Категории
-         ul.card-block
-            li.card#animation-first-position
-               div.card__circle
-               img.card__img(src="img/pesticides.svg", alt="Пестициды")
-               img.card__img(src="img/pesticides_h.svg", alt="Пестициды")
-               span.card__title Пестициды
-            li.card#animation-second-position
-               div.card__circle
-               img.card__img(src="img/culture.svg", alt="Культуры")
-               img.card__img(src="img/culture_h.svg", alt="Культуры")
-               span.card__title Культуры
-            li.card#animation-third-position
-               div.card__circle
-               img.card__img(src="img/pests.svg", alt="Вредители")
-               img.card__img(src="img/pests_h.svg", alt="Вредители")
-               span.card__title Вредители
-            li.card#animation-fourth-position
-               div.card__circle
-               img.card__img(src="img/ingredients.svg", alt="Действующие вещества")
-               img.card__img(src="img/ingredients_h.svg", alt="Действующие вещества")
-               span.card__title Действующие вещества
+   main.categories
+      div.categories__main
+         img.categories__img.img-anim-br#brown-leaf(src="img/brown_leaf.svg", alt="Коричневый листок")
+         img.categories__img.img-anim#green-leaf(src="img/leaf.svg", alt="Листок")
+         section.categories__section
+            h1.categories__title.title Категории
+            ul.categories__card-block.card-block
+               li.card#animation-first-position
+                  div.card__circle
+                  img.card__img(src="img/pesticides.svg", alt="Пестициды")
+                  img.card__img(src="img/pesticides_h.svg", alt="Пестициды")
+                  span.card__title Пестициды
+               li.card#animation-second-position
+                  div.card__circle
+                  img.card__img(src="img/culture.svg", alt="Культуры")
+                  img.card__img(src="img/culture_h.svg", alt="Культуры")
+                  span.card__title Культуры
+               li.card#animation-third-position
+                  div.card__circle
+                  img.card__img(src="img/pests.svg", alt="Вредители")
+                  img.card__img(src="img/pests_h.svg", alt="Вредители")
+                  span.card__title Вредители
+               li.card#animation-fourth-position
+                  div.card__circle
+                  img.card__img(src="img/ingredients.svg", alt="Действующие вещества")
+                  img.card__img(src="img/ingredients_h.svg", alt="Действующие вещества")
+                  span.card__title Действующие вещества
 script(src="js/app.min.js")

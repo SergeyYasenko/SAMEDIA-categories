@@ -85,28 +85,6 @@ h6 {
   font-size: inherit;
   font-weight: 400;
 }
-.main {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: url("../img/сircle.svg") top 35.5% right 0px no-repeat, url("../img/seeds.svg") 67.5% 17% no-repeat, url("../img/seeds_op.svg") bottom 20% left 0px no-repeat;
-  background-size: auto auto cover;
-  position: relative;
-}
-@media (max-width: 1000px) {
-  .main {
-    background: url("../img/сircle.svg") top 35.5% right -8px no-repeat, url("../img/seeds.svg") right 30% top 0 no-repeat, url("../img/seeds_op.svg") bottom 18% left -10px no-repeat;
-    padding: 60px 30px;
-    display: block;
-  }
-}
-@media (max-width: 460px) {
-  .main {
-    padding: 40px 15px;
-    background: url("../img/seeds.svg") right 0 top 0 no-repeat, url("../img/seeds_op.svg") bottom 0% left -10px no-repeat;
-  }
-}
 .img-anim {
   transition: all 0.3s ease;
   width: 370px;
@@ -143,31 +121,52 @@ h6 {
     display: none;
   }
 }
-.categories {
+.categories__main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: url("../img/сircle.svg") top 35.5% right 0px no-repeat, url("../img/seeds.svg") 67.5% 17% no-repeat, url("../img/seeds_op.svg") bottom 20% left 0px no-repeat;
+  position: relative;
+}
+@media (max-width: 1000px) {
+  .categories__main {
+    background: url("../img/сircle.svg") top 35.5% right -8px no-repeat, url("../img/seeds.svg") right 30% top 0 no-repeat, url("../img/seeds_op.svg") bottom 18% left -10px no-repeat;
+    padding: 60px 30px;
+    display: block;
+  }
+}
+@media (max-width: 460px) {
+  .categories__main {
+    padding: 40px 15px;
+    background: url("../img/seeds.svg") right 0 top 0 no-repeat, url("../img/seeds_op.svg") bottom 0% left -10px no-repeat;
+  }
+}
+.categories__section {
   max-width: 1630px;
   margin: 0 auto;
   text-align: left;
 }
 @media (max-width: 1630px) {
-  .categories {
+  .categories__section {
     max-width: 970px;
   }
 }
 @media (max-width: 970px) {
-  .categories {
+  .categories__section {
     max-width: 750px;
   }
 }
 @media (max-width: 767px) {
-  .categories {
+  .categories__section {
     max-width: none;
   }
 }
-.categories .title {
+.categories__title {
   position: relative;
   margin-bottom: 65px;
 }
-.categories .title::after {
+.categories__title::after {
   content: "";
   position: absolute;
   width: 88px;
@@ -177,32 +176,32 @@ h6 {
   left: 0;
 }
 @media (max-width: 767px) {
-  .categories .title::after {
+  .categories__title::after {
     top: 45px;
   }
 }
 @media (max-width: 1000px) {
-  .categories .title {
+  .categories__title {
     margin-bottom: 40px;
   }
 }
 @media (max-width: 767px) {
-  .categories .title {
+  .categories__title {
     font-size: 36px;
     line-height: 40px;
     margin-bottom: 30px;
   }
 }
-.card-block {
+.categories__card-block {
   display: flex;
 }
 @media (max-width: 1630px) {
-  .card-block {
+  .categories__card-block {
     flex-wrap: wrap;
   }
 }
 @media (max-width: 1000px) {
-  .card-block {
+  .categories__card-block {
     display: block;
   }
 }
@@ -221,6 +220,7 @@ h6 {
   margin: 15px 32px 30px 0;
   z-index: 1;
   position: relative;
+  overflow: hidden;
 }
 @media (max-width: 1000px) {
   .card {
@@ -236,8 +236,8 @@ h6 {
 .card::before {
   content: "";
   position: absolute;
-  right: 1px;
-  bottom: 1px;
+  right: 40px;
+  bottom: 20px;
   width: 72px;
   height: 72px;
   border-radius: 50%;
@@ -267,8 +267,8 @@ h6 {
 }
 .card__circle {
   position: absolute;
-  left: 0px;
-  top: 0px;
+  left: 40px;
+  top: 20px;
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -287,20 +287,20 @@ h6 {
 .card:hover:first-child {
   padding-top: 9px;
 }
-.card:hover::before {
-  animation: move3 6s infinite linear;
-}
-.card:hover::after {
-  animation: move2 6s infinite linear;
-}
-.card:hover .card__circle {
-  animation: move 6s infinite linear;
-}
 .card:hover .card__img:nth-child(2) {
   display: none;
 }
 .card:hover .card__img:nth-child(3) {
   display: block;
+}
+.card::before {
+  animation: move3 15s infinite ease-in-out;
+}
+.card::after {
+  animation: move2 15s infinite ease-in-out;
+}
+.card .card__circle {
+  animation: move 15s infinite ease-in-out;
 }
 .card:first-child .card__title {
   font-size: 28px;
@@ -363,241 +363,205 @@ h6 {
 }
 @-moz-keyframes move {
   0% {
-    transform: translate(0, 0);
-    transform: scale(0.5);
+    transform: scale(1);
   }
   30% {
-    transform: translate(60px, 90px);
+    transform: translate(280px, 0px);
   }
   50% {
-    transform: translate(130px, 130px);
-    transform: scale(0.5);
+    transform: scale(2) translate(0px, 50px);
   }
   70% {
-    transform: translate(300px, 30px);
+    transform: translate(280px, 140px);
   }
   100% {
-    transform: translate(0, 0);
     transform: scale(1);
   }
 }
 @-webkit-keyframes move {
   0% {
-    transform: translate(0, 0);
-    transform: scale(0.5);
+    transform: scale(1);
   }
   30% {
-    transform: translate(60px, 90px);
+    transform: translate(280px, 0px);
   }
   50% {
-    transform: translate(130px, 130px);
-    transform: scale(0.5);
+    transform: scale(2) translate(0px, 50px);
   }
   70% {
-    transform: translate(300px, 30px);
+    transform: translate(280px, 140px);
   }
   100% {
-    transform: translate(0, 0);
     transform: scale(1);
   }
 }
 @-o-keyframes move {
   0% {
-    transform: translate(0, 0);
-    transform: scale(0.5);
+    transform: scale(1);
   }
   30% {
-    transform: translate(60px, 90px);
+    transform: translate(280px, 0px);
   }
   50% {
-    transform: translate(130px, 130px);
-    transform: scale(0.5);
+    transform: scale(2) translate(0px, 50px);
   }
   70% {
-    transform: translate(300px, 30px);
+    transform: translate(280px, 140px);
   }
   100% {
-    transform: translate(0, 0);
     transform: scale(1);
   }
 }
 @keyframes move {
   0% {
-    transform: translate(0, 0);
-    transform: scale(0.5);
+    transform: scale(1);
   }
   30% {
-    transform: translate(60px, 90px);
+    transform: translate(280px, 0px);
   }
   50% {
-    transform: translate(130px, 130px);
-    transform: scale(0.5);
+    transform: scale(2) translate(0px, 50px);
   }
   70% {
-    transform: translate(300px, 30px);
+    transform: translate(280px, 140px);
   }
   100% {
-    transform: translate(0, 0);
     transform: scale(1);
   }
 }
 @-moz-keyframes move2 {
   0% {
-    transform: translate(0, 0);
-    transform: scale(0.5);
+    transform: scale(1);
   }
   30% {
-    transform: translate(150px, -90px);
+    transform: translate(250px, -60px);
   }
   50% {
-    transform: translate(300px, -80px);
-    transform: scale(0.5);
+    transform: scale(1.8) translate(0px, 60px);
   }
   70% {
-    transform: translate(150px, -30px);
+    transform: translate(250px, -50px);
   }
   100% {
-    transform: translate(0, 0);
     transform: scale(1);
   }
 }
 @-webkit-keyframes move2 {
   0% {
-    transform: translate(0, 0);
-    transform: scale(0.5);
+    transform: scale(1);
   }
   30% {
-    transform: translate(150px, -90px);
+    transform: translate(250px, -60px);
   }
   50% {
-    transform: translate(300px, -80px);
-    transform: scale(0.5);
+    transform: scale(1.8) translate(0px, 60px);
   }
   70% {
-    transform: translate(150px, -30px);
+    transform: translate(250px, -50px);
   }
   100% {
-    transform: translate(0, 0);
     transform: scale(1);
   }
 }
 @-o-keyframes move2 {
   0% {
-    transform: translate(0, 0);
-    transform: scale(0.5);
+    transform: scale(1);
   }
   30% {
-    transform: translate(150px, -90px);
+    transform: translate(250px, -60px);
   }
   50% {
-    transform: translate(300px, -80px);
-    transform: scale(0.5);
+    transform: scale(1.8) translate(0px, 60px);
   }
   70% {
-    transform: translate(150px, -30px);
+    transform: translate(250px, -50px);
   }
   100% {
-    transform: translate(0, 0);
     transform: scale(1);
   }
 }
 @keyframes move2 {
   0% {
-    transform: translate(0, 0);
-    transform: scale(0.5);
+    transform: scale(1);
   }
   30% {
-    transform: translate(150px, -90px);
+    transform: translate(250px, -60px);
   }
   50% {
-    transform: translate(300px, -80px);
-    transform: scale(0.5);
+    transform: scale(1.8) translate(0px, 60px);
   }
   70% {
-    transform: translate(150px, -30px);
+    transform: translate(250px, -50px);
   }
   100% {
-    transform: translate(0, 0);
     transform: scale(1);
   }
 }
 @-moz-keyframes move3 {
   0% {
-    transform: translate(0, 0);
-    transform: scale(0.5);
+    transform: scale(1);
   }
   30% {
-    transform: translate(-150px, -90px);
+    transform: translate(-250px, 0px);
   }
   50% {
-    transform: translate(-300px, -130px);
-    transform: scale(0.5);
+    transform: scale(1.5) translate(50px, -90px);
   }
   70% {
     transform: translate(-150px, -90px);
   }
   100% {
-    transform: translate(0, 0);
     transform: scale(1);
   }
 }
 @-webkit-keyframes move3 {
   0% {
-    transform: translate(0, 0);
-    transform: scale(0.5);
+    transform: scale(1);
   }
   30% {
-    transform: translate(-150px, -90px);
+    transform: translate(-250px, 0px);
   }
   50% {
-    transform: translate(-300px, -130px);
-    transform: scale(0.5);
+    transform: scale(1.5) translate(50px, -90px);
   }
   70% {
     transform: translate(-150px, -90px);
   }
   100% {
-    transform: translate(0, 0);
     transform: scale(1);
   }
 }
 @-o-keyframes move3 {
   0% {
-    transform: translate(0, 0);
-    transform: scale(0.5);
+    transform: scale(1);
   }
   30% {
-    transform: translate(-150px, -90px);
+    transform: translate(-250px, 0px);
   }
   50% {
-    transform: translate(-300px, -130px);
-    transform: scale(0.5);
+    transform: scale(1.5) translate(50px, -90px);
   }
   70% {
     transform: translate(-150px, -90px);
   }
   100% {
-    transform: translate(0, 0);
     transform: scale(1);
   }
 }
 @keyframes move3 {
   0% {
-    transform: translate(0, 0);
-    transform: scale(0.5);
+    transform: scale(1);
   }
   30% {
-    transform: translate(-150px, -90px);
+    transform: translate(-250px, 0px);
   }
   50% {
-    transform: translate(-300px, -130px);
-    transform: scale(0.5);
+    transform: scale(1.5) translate(50px, -90px);
   }
   70% {
     transform: translate(-150px, -90px);
   }
   100% {
-    transform: translate(0, 0);
     transform: scale(1);
   }
 }
